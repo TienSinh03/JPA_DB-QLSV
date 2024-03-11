@@ -1,7 +1,4 @@
-import entities.Class_St;
-import entities.Course;
-import entities.Enrollment;
-import entities.Student;
+import entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -90,5 +87,17 @@ public class Testing {
             em.persist(enrollment);
 //            em.merge(enrollment);
         });
+    }
+
+    @Test
+    public void testAddProfileClass() {
+        doInJPA(this::entityManagerFactory, em -> {
+            Class_St classSt = em.find(Class_St.class, "C01");
+            Class_StProfile classStProfile = new Class_StProfile("P01", LocalDate.now(), "Class Phan Tan");
+            classStProfile.setClassSt(classSt);
+            em.persist(classStProfile);
+
+        });
+
     }
 }
