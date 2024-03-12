@@ -100,4 +100,27 @@ public class Testing {
         });
 
     }
+
+    @Test
+    public void testAddPropertyGender() {
+        doInJPA(this::entityManagerFactory , em -> {
+            Student st = em.find(Student.class, "SV01");
+            st.setGender(Gender.MALE);
+
+            em.merge(st);
+        });
+
+    }
+
+    @Test
+    public void testAddAddress() {
+        doInJPA(this::entityManagerFactory, em -> {
+            Student st = em.find(Student.class, "SV01");
+            Address address = new Address("247 Ha Huy Giap", "Ho Chi Minh", "HCM",1523);
+            st.setAddress(address);
+
+            em.merge(st);
+        });
+    }
+
 }

@@ -38,6 +38,16 @@ public class Student {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "class_id")
     private Class_St classSt;
+
+    //Add Enum
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    // Nhung class address
+    @Embedded
+    private Address address;
+
+
     public Student(String id, String name, String email, LocalDate dob) {
         this.id = id;
         this.name = name;
