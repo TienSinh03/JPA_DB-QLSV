@@ -23,6 +23,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Table(name = "students")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Student {
     @Id
     @Column(name = "student_id")
