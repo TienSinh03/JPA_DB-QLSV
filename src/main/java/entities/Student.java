@@ -28,31 +28,31 @@ import java.util.Set;
 public class Student {
     @Id
     @Column(name = "student_id")
-    private String id;
+    protected String id;
     @Column(columnDefinition = "nvarchar(100)", nullable = false, unique = true) //Viet co dau va khong duoc null
-    private String name;
+    protected String name;
     @Column(nullable = false, unique = true) // email is not null and unique
-    private String email;
-    private LocalDate dob;
+    protected String email;
+    protected LocalDate dob;
 
     // Quan he 1-n giua student va class (1 sinh vien chi thuoc 1 lop)
     //Ben Many
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "class_id")
-    private Class_St classSt;
+    protected Class_St classSt;
 
     //Add Enum
     @Enumerated(EnumType.STRING)
-    private Gender gender;
+    protected Gender gender;
 
     // Nhung class address
     @Embedded
-    private Address address;
+    protected Address address;
 
     @ElementCollection
     @CollectionTable(name = "phones", joinColumns = @JoinColumn(name = "student_id"))
     @Column(name = "phone")
-    private Set<String> phones;
+    protected Set<String> phones;
 
 
     public Student(String id, String name, String email, LocalDate dob) {
