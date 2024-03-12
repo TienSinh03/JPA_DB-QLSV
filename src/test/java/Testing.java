@@ -124,10 +124,18 @@ public class Testing {
     }
 
     @Test
-    public void testAddStudent() {
+    public void testAddPartTimeStudent() {
         doInJPA(this::entityManagerFactory, em -> {
             Student partTimeStudent = new PartTimeStudent("SV02", "Van A", "a@gmail.com", LocalDate.of(2000, 1, 1), "Nguyen Van B");
             em.persist(partTimeStudent);
+        });
+    }
+
+    @Test
+    public void testAddFullTimeStuden() {
+        doInJPA(this::entityManagerFactory, em -> {
+            Student fullTimeStudent = new FullTimeStudent("SV03", "Van B", "b@gmail.com", LocalDate.of(2000, 1, 1), "CNTT", "Java");
+            em.persist(fullTimeStudent);
         });
     }
 }
