@@ -7,6 +7,9 @@ import jakarta.transaction.Transaction;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static org.hibernate.testing.transaction.TransactionUtil.doInJPA;
 
@@ -136,6 +139,17 @@ public class Testing {
         doInJPA(this::entityManagerFactory, em -> {
             Student fullTimeStudent = new FullTimeStudent("SV03", "Van B", "b@gmail.com", LocalDate.of(2000, 1, 1), "CNTT", "Java");
             em.persist(fullTimeStudent);
+        });
+    }
+
+    @Test
+    public void testAddPhone() {
+        doInJPA(this::entityManagerFactory, em -> {
+            Student st = em.find(Student.class, "SV01");
+            Set<String> phones = new HashSet<String>(List.of("036494904", "0145145187"));
+            st.setPhones(phones);
+
+            em.merge(st);
         });
     }
 }

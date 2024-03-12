@@ -11,6 +11,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 /*
  * @description:
@@ -47,6 +48,11 @@ public class Student {
     // Nhung class address
     @Embedded
     private Address address;
+
+    @ElementCollection
+    @CollectionTable(name = "phones", joinColumns = @JoinColumn(name = "student_id"))
+    @Column(name = "phone")
+    private Set<String> phones;
 
 
     public Student(String id, String name, String email, LocalDate dob) {
