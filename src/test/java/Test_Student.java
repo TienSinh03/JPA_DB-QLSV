@@ -24,7 +24,7 @@ import static org.hibernate.testing.transaction.TransactionUtil.doInJPA;
 
 public class Test_Student {
     public EntityManagerFactory entityManagerFactory() {
-        return Persistence.createEntityManagerFactory("JPADemo_QLSV");
+        return Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB");
     }
 
     private Dao_Student dao_student;

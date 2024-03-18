@@ -25,31 +25,31 @@ import static org.hibernate.testing.transaction.TransactionUtil.doInJPA;
  * @date: 3/11/2024
  */
 public class Testing {
-    public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB"); // Dung de quan ly tat ca cac property persistence unit
-
-        EntityManager em = emf.createEntityManager(); // Quan ly cac entities
-
-        EntityTransaction tx = em.getTransaction();
-
-        //Them sinh vine
-        Student student = new Student("SV01", "Sinh", "za@gmail.com", LocalDate.of(2000, 1, 1));
-
-        try {
-            tx.begin();
-
-            em.persist(student); // Them sinh vien
-
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            tx.rollback();
-        } finally {
-            em.close();
-            emf.close();
-        }
-
-    }
+//    public static void main(String[] args) {
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB"); // Dung de quan ly tat ca cac property persistence unit
+//
+//        EntityManager em = emf.createEntityManager(); // Quan ly cac entities
+//
+//        EntityTransaction tx = em.getTransaction();
+//
+//        //Them sinh vine
+//        Student student = new Student("SV01", "Sinh", "za@gmail.com", LocalDate.of(2000, 1, 1));
+//
+//        try {
+//            tx.begin();
+//
+//            em.persist(student); // Them sinh vien
+//
+//            tx.commit();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            tx.rollback();
+//        } finally {
+//            em.close();
+//            emf.close();
+//        }
+//
+//    }
 
     public EntityManagerFactory entityManagerFactory() {
         return Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB");
