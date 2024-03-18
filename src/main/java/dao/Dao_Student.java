@@ -25,10 +25,10 @@ import static org.hibernate.testing.transaction.TransactionUtil.doInJPA;
  */
 public class Dao_Student {
     public EntityManagerFactory entityManagerFactory() {
-        return Persistence.createEntityManagerFactory("JPADemo_QLSV");
+        return Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB");
     }
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADemo_QLSV");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB");
     EntityManager em = emf.createEntityManager();
     EntityTransaction tx = em.getTransaction();
 

@@ -11,6 +11,7 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import lombok.*;
 
+
 /*
  * @description:
  * @author: Sinh Phan Tien
@@ -28,4 +29,5 @@ public class Address {
     private String state;
     @Column(name = "postal_code")
     private int postalCode;
+
 }

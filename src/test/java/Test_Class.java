@@ -18,7 +18,7 @@ import static org.hibernate.testing.transaction.TransactionUtil.doInJPA;
  */
 public class Test_Class {
     public EntityManagerFactory entityManagerFactory(){
-        return Persistence.createEntityManagerFactory("JPADemo_QLSV");
+        return Persistence.createEntityManagerFactory("JPADemo_QLSV_MariaDB");
     }
 
     @Test
